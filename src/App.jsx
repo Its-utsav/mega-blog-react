@@ -1,4 +1,3 @@
-console.log(process.env.VITE_NAME);
 function App() {
     return (
         <>
