@@ -23,14 +23,6 @@ class AuthService {
         this.account = new Account(this.client);
     }
 
-    /**
-     *
-     * @param {Object} user
-     * @param {string} user.name
-     * @param {string} user.email
-     * @param {string} user.password
-     * @returns
-     */
     async createAccount({ name, email, password }) {
         try {
             const user = await this.account.create(
@@ -52,13 +44,6 @@ class AuthService {
         }
     }
 
-    /**
-     *
-     * @param {Object} user
-     * @param {string} user.email
-     * @param {string} user.password
-     * @returns
-     */
     async login({ email, password }) {
         try {
             const user = await this.account.createEmailPasswordSession(
@@ -86,7 +71,7 @@ class AuthService {
 
     async logout() {
         try {
-            return await this.account.deleteSessions(); // logout from all
+            return await this.account.deleteSessions(); // logout from all users sessions
         } catch (error) {
             console.error(`appwrite :: logout :: error ${error}`);
         }
