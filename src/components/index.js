@@ -1,4 +1,9 @@
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import Input from "./Input";
-export { Header, Footer, Input };
+import Select from "./Select";
+import Login from "./Login";
+import Button from "./Button";
+import Logo from "./Logo";
+
+export { Header, Footer, Input, Select, Login, Button, Logo };

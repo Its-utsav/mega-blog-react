@@ -28,9 +28,9 @@ function App() {
                 <div className="block w-full">
                     <Header />
                     <main>
-                        {loading && (
+                        {/* {loading && (
                             <p className="text-8xl text-green-400">Loading</p>
-                        )}
+                        )} */}
                         <Outlet />
                     </main>
                     <Footer />

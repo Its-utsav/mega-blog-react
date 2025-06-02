@@ -12,13 +12,18 @@ import {
 } from "react-router";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
+import Protected from "./components/Protected.jsx";
+import AllPost from "./pages/AllPost.jsx";
 
 const routes = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<App />}>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />}>
-                {/* <Login /> */}
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
+            <Route element={<Protected />}>
+                <Route path="/all-post" element={<AllPost />} />
             </Route>
         </Route>
     )
