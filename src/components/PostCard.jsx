@@ -1,18 +1,22 @@
 import { Link } from "react-router";
 import { service } from "../appwrite/services/config";
 
-const PostCard = ({ $id, title }) => {
-    const filePreview = service.getFilePreview($id);
-
+const PostCard = (props) => {
+    const filePreview = service.getFilePreview(props.featured_image);
+    console.log(props, filePreview);
     // TODO CHECK IT
 
     return (
-        <Link to={`/post/${$id}`}>
+        <Link to={`/post/${props.$id}`}>
             <div className="w-full rounded-xl bg-gray-100 p-4">
                 <div className="mb-4 w-full justify-center">
-                    <img src={filePreview} alt={title} className="rounded-xl" />
+                    <img
+                        src={filePreview}
+                        alt={props.title}
+                        className="rounded-xl"
+                    />
                 </div>
-                <h2 className="text-xl font-bold">{title}</h2>
+                <h2 className="text-xl font-bold">{props.title}</h2>
             </div>
         </Link>
     );

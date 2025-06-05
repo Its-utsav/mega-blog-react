@@ -25,7 +25,7 @@ function App() {
     return (
         <>
             <div className="flex min-h-screen flex-wrap content-between bg-gray-500">
-                <div className="block w-full">
+                <div className="mx-4 block w-full">
                     <Header />
                     <main>
                         {/* {loading && (

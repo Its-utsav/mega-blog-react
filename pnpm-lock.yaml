@@ -14,9 +14,12 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.8
         version: 4.1.8(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1))
+      '@tinymce/miniature':
+        specifier: ^6.0.0
+        version: 6.0.0(tinymce@7.9.1)
       '@tinymce/tinymce-react':
         specifier: ^6.2.0
-        version: 6.2.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 6.2.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tinymce@7.9.1)
       appwrite:
         specifier: ^18.1.1
         version: 18.1.1
@@ -81,6 +84,35 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@ephox/agar@8.0.1':
+    resolution: {integrity: sha512-2LR/u0oos9GadRoLFDVE6NRDV8Tl9+DYQyouVYn0+7afAYdouyw+nXaoTVG5nnvMG+ofsmldKOC82nJWu0a4kQ==}
+
+  '@ephox/bedrock-client@13.0.0':
+    resolution: {integrity: sha512-Zah4+o7wFmYO6x3AHiQ1fIYdWIKMAlgszFqKp+JYrmkmqQG9h25wk2izPvTvJ+UGrORU6W90PrDWuksE1XhcUw==}
+
+  '@ephox/bedrock-common@13.0.0':
+    resolution: {integrity: sha512-aJ3gtezZ0duGJAniT/+uWi0fFCJRqNdJjumxhCwOVTc2MSsXcyqn70s6FIlrp/Fw2QuyiEqxgormgrmBUbWNWA==}
+
+  '@ephox/dispute@1.0.16':
+    resolution: {integrity: sha512-qHy0c+TX4FZx6xI2EBoBqOjGlbtGqQlvK7uWMNCVkfXveJ/dWhjFKfxRR2fsIN/xOYDQ7uJ/GcD+oDpryxl1dA==}
+
+  '@ephox/jax@7.0.10':
+    resolution: {integrity: sha512-iDqR2M45ketsSdfQmrjy8xyqVGPiLUTs/FOYBmwUdbBNYifQx9sT2eKQrOmsVYuH6voZaoiXdA0EK8aqHcKGQg==}
+
+  '@ephox/katamari@9.1.6':
+    resolution: {integrity: sha512-7R7hcpiIWaDk4t731ppdr3X/hjLZkHTDjJCEgGgTS3ylddodGKtSMS91tISicYjKQXnB06GT+gJoOk3/McazIg==}
+
+  '@ephox/mcagar@9.0.1':
+    resolution: {integrity: sha512-iNMP8mkz8AtgiRceU4TAnstQje3RG8yxM/QoWKkriCeh6n5fe1sSfexFRVW3fwZ0bUrjTlyawSqoH0yhESqJjQ==}
+    peerDependencies:
+      tinymce: '>=4.0.0'
+
+  '@ephox/sand@6.0.10':
+    resolution: {integrity: sha512-q/2Xcjl1O5c9/HHxQiEKGZkGsC68WUjVP5ciDNKqrZd1s1BhA3VWbaubQxxBRt3SwKyBCukfS5gL53qkqTfbkg==}
+
+  '@ephox/sugar@9.3.1':
+    resolution: {integrity: sha512-NQMqDN0zC+IZGuhBuz/7RxncfJsmTBhCHgaqkHOJ5d1E0CIL9afIizBYQ0JSHS3osAb9woGGtwPobjCx3/Srpw==}
 
   '@esbuild/aix-ppc64@0.25.5':
     resolution: {integrity: sha512-9o3TMmpmftaCMepOdA5k/yDw8SfInyzWWTjYTFCX3kPSDJMROQTb8jg+h9Cnwnmm1vOzvxN7gIfB5V2ewpjtGA==}
@@ -597,6 +629,9 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6
 
+  '@tinymce/miniature@6.0.0':
+    resolution: {integrity: sha512-bLpaTTgbyMHP3V8bucSxvCTVTUjRRk05zDgnlD5Hj2eo6hEyHT1FCqpuhdVLHx9mbCydrlAIhhsY8Ex6Hp8Qqg==}
+
   '@tinymce/tinymce-react@6.2.0':
     resolution: {integrity: sha512-uJtoZPZ89YoBlxPUpmyJXGU1VHzISwMiwDlr1mkYe9ESUfpH2DROLFTqk5GvB+SoFjmXsqyiTce4FBuv9T4bUQ==}
     peerDependencies:
@@ -620,6 +655,9 @@ packages:
 
   '@types/react@19.1.6':
     resolution: {integrity: sha512-JeG0rEWak0N6Itr6QUx+X60uQmN+5t3j9r/OVDtWzFXKaj6kD1BwJzOksD0FF6iWxZlbE1kB0q9vtnU2ekqa1Q==}
+
+  '@types/sizzle@2.3.9':
+    resolution: {integrity: sha512-xzLEyKB50yqCUPUJkIsrVvoWNfFUbIZI+RspLWt8u+tIW/BetMBZtgV2LY/2o+tYH8dRvQ+eoPf3NdhQCcLE2w==}
 
   '@types/use-sync-external-store@0.0.6':
     resolution: {integrity: sha512-zFDAD+tlpf2r4asuHEj0XH6pY6i0g5NeAHPn+15wk3BV6JA69eERFXC1gyGThDkVa1zCyKr5jox1+2LbV/AMLg==}
@@ -707,6 +745,10 @@ packages:
     resolution: {integrity: sha512-3UDv+G9CsCKO1WKMGw9fwq/SWJYbI0c5Y7LU1AXYoDdbhE2AHQ6N6Nb34sG8Fj7T5APy8qXDCKuuIHd1BR0tVA==}
     engines: {node: '>=8'}
 
+  diff@5.2.0:
+    resolution: {integrity: sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==}
+    engines: {node: '>=0.3.1'}
+
   dom-serializer@2.0.0:
     resolution: {integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==}
 
@@ -793,6 +835,10 @@ packages:
   esutils@2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
+
+  fast-check@2.25.0:
+    resolution: {integrity: sha512-wRUT2KD2lAmT75WNIJIHECawoUUMHM0I5jrlLXGtGeqmPL8jl/EldUDjY1VCp6fDY8yflyfUeIOsOBrIbIiArg==}
+    engines: {node: '>=8.0.0'}
 
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
@@ -1136,6 +1182,9 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
+  pure-rand@5.0.5:
+    resolution: {integrity: sha512-BwQpbqxSCBJVpamI6ydzcKqyFmnd5msMWUGvzXLm1aXvusbbgkbOto/EUPM00hjveJEaJtdbhUjKSzWRhQVkaw==}
+
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
@@ -1213,6 +1262,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  sizzle@2.3.10:
+    resolution: {integrity: sha512-kPGev+SiByuzi/YPDTqCwdKLWCaN9+14ve86yH0gP6Efue04xjLYWJrcLC6y1buFyIVXkwHNXPsOTEd1MYVPbQ==}
+
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -1245,6 +1297,12 @@ packages:
   tinyglobby@0.2.14:
     resolution: {integrity: sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==}
     engines: {node: '>=12.0.0'}
+
+  tinymce@7.9.1:
+    resolution: {integrity: sha512-zaOHwmiP1EqTeLRXAvVriDb00JYnfEjWGPdKEuac7MiZJ5aiDMZ4Unc98Gmajn+PBljOmO1GKV6G0KwWn3+k8A==}
+
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -1321,6 +1379,56 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
+
+  '@ephox/agar@8.0.1':
+    dependencies:
+      '@ephox/bedrock-client': 13.0.0
+      '@ephox/bedrock-common': 13.0.0
+      '@ephox/jax': 7.0.10
+      '@ephox/sand': 6.0.10
+      '@ephox/sugar': 9.3.1
+      '@types/sizzle': 2.3.9
+      fast-check: 2.25.0
+      sizzle: 2.3.10
+
+  '@ephox/bedrock-client@13.0.0':
+    dependencies:
+      '@ephox/bedrock-common': 13.0.0
+      '@ephox/dispute': 1.0.16
+
+  '@ephox/bedrock-common@13.0.0':
+    dependencies:
+      diff: 5.2.0
+
+  '@ephox/dispute@1.0.16':
+    dependencies:
+      tslib: 2.8.1
+
+  '@ephox/jax@7.0.10':
+    dependencies:
+      '@ephox/katamari': 9.1.6
+
+  '@ephox/katamari@9.1.6':
+    dependencies:
+      '@ephox/dispute': 1.0.16
+
+  '@ephox/mcagar@9.0.1(tinymce@7.9.1)':
+    dependencies:
+      '@ephox/agar': 8.0.1
+      '@ephox/katamari': 9.1.6
+      '@ephox/sand': 6.0.10
+      '@ephox/sugar': 9.3.1
+      fast-check: 2.25.0
+      tinymce: 7.9.1
+
+  '@ephox/sand@6.0.10':
+    dependencies:
+      '@ephox/katamari': 9.1.6
+
+  '@ephox/sugar@9.3.1':
+    dependencies:
+      '@ephox/katamari': 9.1.6
+      '@ephox/sand': 6.0.10
 
   '@esbuild/aix-ppc64@0.25.5':
     optional: true
@@ -1676,11 +1784,22 @@ snapshots:
       tailwindcss: 4.1.8
       vite: 6.3.5(jiti@2.4.2)(lightningcss@1.30.1)
 
-  '@tinymce/tinymce-react@6.2.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@tinymce/miniature@6.0.0(tinymce@7.9.1)':
+    dependencies:
+      '@ephox/agar': 8.0.1
+      '@ephox/katamari': 9.1.6
+      '@ephox/mcagar': 9.0.1(tinymce@7.9.1)
+      '@ephox/sugar': 9.3.1
+    transitivePeerDependencies:
+      - tinymce
+
+  '@tinymce/tinymce-react@6.2.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(tinymce@7.9.1)':
     dependencies:
       prop-types: 15.8.1
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+    optionalDependencies:
+      tinymce: 7.9.1
 
   '@types/estree@1.0.7': {}
 
@@ -1693,6 +1812,8 @@ snapshots:
   '@types/react@19.1.6':
     dependencies:
       csstype: 3.1.3
+
+  '@types/sizzle@2.3.9': {}
 
   '@types/use-sync-external-store@0.0.6': {}
 
@@ -1766,6 +1887,8 @@ snapshots:
   deep-is@0.1.4: {}
 
   detect-libc@2.0.4: {}
+
+  diff@5.2.0: {}
 
   dom-serializer@2.0.0:
     dependencies:
@@ -1900,6 +2023,10 @@ snapshots:
   estraverse@5.3.0: {}
 
   esutils@2.0.3: {}
+
+  fast-check@2.25.0:
+    dependencies:
+      pure-rand: 5.0.5
 
   fast-deep-equal@3.1.3: {}
 
@@ -2138,6 +2265,8 @@ snapshots:
 
   punycode@2.3.1: {}
 
+  pure-rand@5.0.5: {}
+
   react-dom@19.1.0(react@19.1.0):
     dependencies:
       react: 19.1.0
@@ -2216,6 +2345,8 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
+  sizzle@2.3.10: {}
+
   source-map-js@1.2.1: {}
 
   strip-json-comments@3.1.1: {}
@@ -2249,6 +2380,10 @@ snapshots:
     dependencies:
       fdir: 6.4.5(picomatch@4.0.2)
       picomatch: 4.0.2
+
+  tinymce@7.9.1: {}
+
+  tslib@2.8.1: {}
 
   type-check@0.4.0:
     dependencies:

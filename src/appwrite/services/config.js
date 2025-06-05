@@ -145,7 +145,7 @@ class Service {
     }
 
     getFilePreview(fileId) {
-        return this.storage.getFilePreview(env.appwriteBucketID, fileId);
+        return this.storage.getFileView(env.appwriteBucketID, fileId);
     }
 }
 

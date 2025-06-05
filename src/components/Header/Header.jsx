@@ -29,12 +29,12 @@ const Header = () => {
         {
             name: "All Post",
             url: "/all-post",
-            active: true,
+            active: authStatus,
         },
         {
             name: "Add Post",
             url: "/add-new-post",
-            active: true,
+            active: authStatus,
         },
     ];
     return (

@@ -8,6 +8,7 @@ const env = {
     appwriteDBID: String(import.meta.env.VITE_APPWRITE_DB_ID),
     appwriteCollectionID: String(import.meta.env.VITE_APPWRITE_COLLECTION_ID),
     appwriteBucketID: String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
+    tinyMce: String(import.meta.env.VITE_TINY_MCE),
 };
 
 export default env;
