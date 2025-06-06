@@ -17,11 +17,12 @@ const Select = ({
                 </label>
             )}
             <select
-                name=""
+                name="status"
                 id={id}
                 ref={ref}
                 className={`w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-black duration-200 outline-none focus:bg-gray-50 ${className}`}
                 {...props}
+                value={"status"}
             >
                 {options?.map((option) => (
                     <option key={option} value={option}>

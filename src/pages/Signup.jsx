@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { authService } from "../appwrite/services/auth";
-import { Input, Button, Logo } from "../components";
+import { Button, Input, Logo } from "../components";
 
 const Signup = () => {
     const [errors, setErrors] = useState("");

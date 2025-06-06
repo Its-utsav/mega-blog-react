@@ -4,13 +4,10 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { service } from "../../appwrite/services/config";
 import { tranformBoolValue } from "../../utils";
-import Button from "../Button";
-import Input from "../Input";
-import RTE from "../RTE";
-import Select from "../Select";
+import { Button, Input, Select, RTE } from "../index";
 
 const PostForm = ({ post }) => {
-    // console.log(post);
+    console.log("from post form", post);
     const userData = useSelector((state) => state.auth.userData);
     const navigate = useNavigate();
     // console.log(userData);
@@ -26,6 +23,7 @@ const PostForm = ({ post }) => {
         });
 
     const submit = async (data) => {
+        console.log(data);
         if (post) {
             // Updation of Postr
             const img = data.image[0];
@@ -43,7 +41,7 @@ const PostForm = ({ post }) => {
                 status: tranformBoolValue(data.status),
             });
 
-            if (updatedPost) navigate(`/posts/${updatedPost.$id}`);
+            if (updatedPost) navigate(`/post/${updatedPost.$id}`);
         } else {
             const img = data.image[0];
             const file = img ? await service.fileUpload(img) : null;
@@ -58,7 +56,7 @@ const PostForm = ({ post }) => {
                 status: tranformBoolValue(data.status),
             });
 
-            if (newPost) navigate(`/posts/${newPost.$id}`);
+            if (newPost) navigate(`/post/${newPost.$id}`);
         }
     };
 
@@ -72,8 +70,8 @@ const PostForm = ({ post }) => {
 
     useEffect(() => {
         const subscription = watch((value, { name }) => {
-            if (name === "slug") {
-                setValue("slug", slugTransform(value.slug));
+            if (name === "title") {
+                setValue("slug", slugTransform(value.title));
             }
         });
 
@@ -103,6 +101,12 @@ const PostForm = ({ post }) => {
                         {...register("slug", {
                             required: true,
                         })}
+                        onInput={(e) => {
+                            setValue(
+                                "slug",
+                                slugTransform(e.currentTarget.value)
+                            );
+                        }}
                     />
 
                     <RTE
@@ -133,7 +137,10 @@ const PostForm = ({ post }) => {
                             />
                         </div>
                     )}
-                    <Select options={["ACTIVE", "INACTIVE"]} />
+                    <Select
+                        options={["ACTIVE", "INACTIVE"]}
+                        {...register("status", { required: true })}
+                    />
                     <div className="my-4 flex w-full items-center justify-center rounded-full text-center">
                         <Button type="submit" className="w-2/3">
                             {post ? "Update" : "Add !!"}

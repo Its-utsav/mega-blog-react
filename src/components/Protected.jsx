@@ -11,7 +11,7 @@ const Protected = ({ children }) => {
     useEffect(() => {
         if (!authStatus && !localStorageToken) {
             // return navigate("/login");
-            return <Navigate to="/login" replace={true} />;
+            navigate("/login");
         }
         //  else if (authStatus) {
         //     navigate("/");
