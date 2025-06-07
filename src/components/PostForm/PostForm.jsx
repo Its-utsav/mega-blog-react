@@ -22,23 +22,27 @@ const PostForm = ({ post }) => {
             },
         });
 
+    console.log(userData);
     const submit = async (data) => {
         console.log(data);
         if (post) {
             // Updation of Postr
             const img = data.image[0];
+            const status =
+                data.status === true || data.status === false
+                    ? data.status
+                    : tranformBoolValue(data.status);
 
             const file = img ? await service.fileUpload(img) : null;
 
             if (file) await service.fileDelete(post.featured_image);
-
-            const updatedPost = await service.updatePost(data.$id, {
+            const updatedPost = await service.updatePost(post.$id, {
                 title: data.title,
                 content: data.Content,
                 featured_image: file ? file.$id : null,
                 slug: data.slug,
-                user_id: userData.user.$id,
-                status: tranformBoolValue(data.status),
+                user_id: userData.$id,
+                status: status,
             });
 
             if (updatedPost) navigate(`/post/${updatedPost.$id}`);
@@ -52,8 +56,8 @@ const PostForm = ({ post }) => {
                 content: data.Content,
                 featured_image: file.$id,
                 slug: data.slug,
-                user_id: userData.user.$id,
-                status: tranformBoolValue(data.status),
+                user_id: userData.$id,
+                status: status,
             });
 
             if (newPost) navigate(`/post/${newPost.$id}`);

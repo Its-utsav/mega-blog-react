@@ -36,6 +36,11 @@ const Header = () => {
             url: "/add-new-post",
             active: authStatus,
         },
+        {
+            name: "My Post",
+            url: "/my-post",
+            active: authStatus,
+        },
     ];
     return (
         <header className="bg-gray-500 py-3 shadow">

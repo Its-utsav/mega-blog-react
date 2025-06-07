@@ -1,4 +1,4 @@
-const tranformBoolValue = (staus) =>
-    staus.toLowerCase() === "active" ? true : false;
+const tranformBoolValue = (status) =>
+    status.toLowerCase() === "active" ? true : false;
 
 export { tranformBoolValue };

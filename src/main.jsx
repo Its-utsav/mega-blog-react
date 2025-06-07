@@ -1,18 +1,18 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import App from "./App.jsx";
-import "./index.css";
-import store from "./store/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import App from "./App.jsx";
+import PostForm from "./components/PostForm/PostForm.jsx";
+import Protected from "./components/Protected.jsx";
+import "./index.css";
+import AllPost from "./pages/AllPost.jsx";
+import EditPost from "./pages/EditPost.jsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import Protected from "./components/Protected.jsx";
-import AllPost from "./pages/AllPost.jsx";
-import PostForm from "./components/PostForm/PostForm.jsx";
 import Post from "./pages/Post.jsx";
-import EditPost from "./pages/EditPost.jsx";
+import Signup from "./pages/Signup.jsx";
+import store from "./store/store.js";
 
 const routes = createBrowserRouter(
     // createRoutesFromElements(
@@ -80,6 +80,14 @@ const routes = createBrowserRouter(
                     element: (
                         <Protected>
                             <EditPost />
+                        </Protected>
+                    ),
+                },
+                {
+                    path: "/my-post",
+                    element: (
+                        <Protected>
+                            <AllPost />
                         </Protected>
                     ),
                 },

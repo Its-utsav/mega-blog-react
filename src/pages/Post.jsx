@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router";
 import { service } from "../appwrite/services/config";
-import { Button } from "../components";
-import Container from "../components/Container/Container";
+import { Button, Container } from "../components";
 
 const Post = () => {
     const { slug } = useParams();
@@ -27,8 +26,7 @@ const Post = () => {
         }
     }, [slug, navigate]);
 
-    const isAuthor =
-        userData && post ? userData.user.$id === post.user_id : false;
+    const isAuthor = userData && post ? userData.$id === post.user_id : false;
     const deletePost = () => {
         service.deletePost(post.$id).then((res) => {
             if (res) {
@@ -41,7 +39,9 @@ const Post = () => {
 
     if (loading) {
         return (
-            <h1 className="text-center text-2xl font-bold"> Loading ....</h1>
+            <h1 className="text-center text-2xl font-bold text-green-600">
+                Loading ....
+            </h1>
         );
     }
     return post ? (
