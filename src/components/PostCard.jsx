@@ -8,11 +8,17 @@ const PostCard = ({ featured_image, $id, title }) => {
 
     return (
         <Link to={`/post/${$id}`}>
-            <div className="w-full rounded-xl bg-gray-100 p-4">
-                <div className="mb-4 w-full justify-center">
-                    <img src={filePreview} alt={title} className="rounded-xl" />
+            <div className="card" title={title}>
+                <div className="mb-4 flex w-full items-center justify-center">
+                    <img
+                        src={filePreview}
+                        alt={title}
+                        className="h-24 rounded-xl object-cover"
+                    />
                 </div>
-                <h2 className="text-xl font-bold">{title}</h2>
+                <h2 className="overflow-hidden text-center text-xl font-bold text-ellipsis whitespace-nowrap">
+                    {title}
+                </h2>
             </div>
         </Link>
     );

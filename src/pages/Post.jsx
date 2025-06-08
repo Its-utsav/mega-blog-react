@@ -45,9 +45,11 @@ const Post = () => {
             <Container>
                 {isAuthor && (
                     <div className="m-4 flex justify-end-safe">
-                        <Link to={`/edit-post/${post.$id}`}>
-                            <Button className="mr-3 bg-green-500">Edit</Button>
-                        </Link>
+                        <Button className="post-edit-link mr-3">
+                            <Link to={`/edit-post/${post.$id}`} className="">
+                                Edit
+                            </Link>
+                        </Button>
                         <Button className="bg-red-500" onClick={deletePost}>
                             Delete
                         </Button>

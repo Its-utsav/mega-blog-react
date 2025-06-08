@@ -1,4 +1,3 @@
-const tranformBoolValue = (status) =>
-    status === "ACTIVE" ? true : false;
+const tranformBoolValue = (status) => (status === "ACTIVE" ? true : false);
 
 export { tranformBoolValue };

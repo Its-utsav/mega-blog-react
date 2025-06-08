@@ -32,7 +32,7 @@ function App() {
 
     return (
         <>
-            <div className="flex min-h-screen flex-wrap content-between bg-gray-500">
+            <div className="bg-primary flex min-h-screen flex-wrap content-between">
                 <div className="mx-4 block w-full">
                     <Header />
                     <main>{loading ? <Loading /> : <Outlet />}</main>

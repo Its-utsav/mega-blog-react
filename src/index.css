@@ -1,1 +1,46 @@
 @import "tailwindcss";
+@theme {
+    --color-primary: #1e1e2e;
+    --color-secondary: #2a2a40;
+    --font-noraml: #e5e5e5;
+    --color-font-normal: #e5e5e5;
+    --color-heading: #ffffff;
+    --color-link: #91a7ff;
+    --color-button: #ff8906;
+
+    --color-footer: #181828;
+    --color-border: #7f5af0;
+}
+/* --color-background: #121212; */
+@layer {
+    /* button {
+        @apply hover:bg-[#FF6700];
+    } */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-[#FFFFFF];
+    }
+    a {
+        @apply text-[#91A7FF] hover:text-[#B2CCFF];
+    }
+    .card {
+        @apply h-48 w-full rounded-xl bg-[#2A2A40] p-4 text-[#E5E5E5] hover:border-2 hover:border-[#7F5AF0];
+    }
+    .browser-css {
+        color: #e5e5e5;
+    }
+    .post-edit-link {
+        @apply bg-button;
+        a {
+            color: #1e1e2e;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+/* https://www.realtimecolors.com/?colors=E0E0E0-121212-1E88E5-64B5F6-0600c2&fonts=Inter-Inter */

@@ -43,7 +43,7 @@ const Header = () => {
         },
     ];
     return (
-        <header className="bg-gray-500 py-3 shadow">
+        <header className="bg-secondary mt-4 rounded-2xl py-3 shadow">
             <Container>
                 <nav className="flex">
                     <div className="mr-4">
@@ -51,7 +51,7 @@ const Header = () => {
                             <Logo width="70px" />
                         </Link>
                     </div>
-                    <ul className="ml-auto flex">
+                    <ul className="ml-auto flex gap-2">
                         {navItems.map((item) =>
                             item.active ? (
                                 <li key={item.name}>

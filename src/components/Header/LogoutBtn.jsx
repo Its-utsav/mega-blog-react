@@ -14,7 +14,11 @@ const LogoutBtn = () => {
         });
     };
     return (
-        <Button type="button" onClick={logoutHandler}>
+        <Button
+            type="button"
+            className="bg-[#FF6AC1]! hover:bg-[##d6459a]!"
+            onClick={logoutHandler}
+        >
             Logout
         </Button>
     );
