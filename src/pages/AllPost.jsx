@@ -5,6 +5,7 @@ import { useLocation } from "react-router";
 import { service } from "../appwrite/services/config";
 import Container from "../components/Container/Container";
 import PostCard from "../components/PostCard";
+import { Loading } from "../components";
 
 const AllPost = () => {
     const [posts, setPosts] = useState([]);
@@ -45,13 +46,7 @@ const AllPost = () => {
     }, [pathname, userData]);
 
     if (loading) {
-        return (
-            <div className="m-4">
-                <h1 className="text-center text-lg text-green-300">
-                    Loading ....
-                </h1>
-            </div>
-        );
+        return <Loading />;
     }
     return (
         <>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { service } from "../appwrite/services/config";
-import { Container, PostForm } from "../components/";
+import { Container, Loading, PostForm } from "../components/";
 
 const EditPost = () => {
     const [post, setPost] = useState();
@@ -29,13 +29,9 @@ const EditPost = () => {
     }, [slug, navigate]);
 
     if (loading) {
-        return (
-            <div className="m-2 p-4 text-center">
-                <h1 className="text-green-300">Loading ....</h1>
-            </div>
-        );
+        return <Loading />;
     }
-    console.log(post);
+    // console.log(post);
     return post ? (
         <div className="py-8">
             <Container>

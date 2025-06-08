@@ -7,7 +7,7 @@ import { tranformBoolValue } from "../../utils";
 import { Button, Input, Select, RTE } from "../index";
 
 const PostForm = ({ post }) => {
-    console.log("from post form", post);
+    // console.log("from post form", post);
     const userData = useSelector((state) => state.auth.userData);
     const navigate = useNavigate();
     // console.log(userData);
@@ -22,9 +22,9 @@ const PostForm = ({ post }) => {
             },
         });
 
-    console.log(userData);
+    // console.log(userData);
     const submit = async (data) => {
-        console.log(data);
+        // console.log(data);
         if (post) {
             // Updation of Postr
             const img = data.image[0];

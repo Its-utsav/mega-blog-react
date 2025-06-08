@@ -27,7 +27,7 @@ const Signup = () => {
     };
 
     const createAccount = async (data) => {
-        console.log(data, errors);
+        // console.log(data, errors);
         try {
             const createdUser = await authService.createAccount(data);
             if (createdUser) {

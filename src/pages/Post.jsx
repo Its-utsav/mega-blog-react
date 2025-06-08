@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router";
 import { service } from "../appwrite/services/config";
-import { Button, Container } from "../components";
+import { Button, Container, Loading } from "../components";
 
 const Post = () => {
     const { slug } = useParams();
@@ -38,11 +38,7 @@ const Post = () => {
     };
 
     if (loading) {
-        return (
-            <h1 className="text-center text-2xl font-bold text-green-600">
-                Loading ....
-            </h1>
-        );
+        return <Loading />;
     }
     return post ? (
         <div className="py-8">

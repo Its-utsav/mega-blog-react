@@ -10,6 +10,7 @@ import RTE from "./RTE";
 import Select from "./Select";
 import Container from "./Container/Container";
 import PostForm from "./PostForm/PostForm";
+import Loading from "./Loading";
 
-export { Button, Footer, Header, Input, Login, Logo, PostCard, Protected, RTE, Select, Container, PostForm };
+export { Button, Footer, Header, Input, Login, Logo, PostCard, Protected, RTE, Select, Container, PostForm, Loading };
 
