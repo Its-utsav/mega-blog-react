@@ -6,12 +6,28 @@ import { authService } from "../appwrite/services/auth";
 import { Button, Input, Logo } from "../components";
 
 const Signup = () => {
-    const [errors, setErrors] = useState("");
-    const { handleSubmit, register } = useForm();
+    const [error, setError] = useState("");
+    const {
+        handleSubmit,
+        register,
+        formState: { errors },
+    } = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const displayErrors = () => {
+        if (errors) {
+            let e = "";
+            for (const [key, val] of Object.entries(errors)) {
+                if (val.message && val.message !== "") {
+                    e += val.message + ". ";
+                }
+            }
+            setError(e);
+        }
+    };
 
     const createAccount = async (data) => {
+        console.log(data, errors);
         try {
             const createdUser = await authService.createAccount(data);
             if (createdUser) {
@@ -20,7 +36,7 @@ const Signup = () => {
                 navigate("/");
             }
         } catch (error) {
-            setErrors(error.message);
+            setError(error.message);
         }
     };
 
@@ -47,7 +63,7 @@ const Signup = () => {
                     </Link>
                 </p>
 
-                <form onSubmit={handleSubmit(createAccount)}>
+                <form onSubmit={handleSubmit(createAccount, displayErrors)}>
                     <div className="space-y-5">
                         <Input
                             label={"Name : "}
@@ -55,7 +71,11 @@ const Signup = () => {
                             placeholder="Enter Your name"
                             // autoComplete="username"
                             {...register("name", {
-                                required: true,
+                                // required: true,
+                                required: {
+                                    message: "Name is Required",
+                                    value: true,
+                                },
                                 pattern: {
                                     value: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/gim,
                                     message: "Enter Valid Name",
@@ -70,7 +90,10 @@ const Signup = () => {
                             placeholder="Enter Your Email"
                             // autoComplete="email"
                             {...register("email", {
-                                required: true,
+                                required: {
+                                    message: "Email is Required",
+                                    value: true,
+                                },
                                 pattern: {
                                     value: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
                                     message:
@@ -86,7 +109,11 @@ const Signup = () => {
                             placeholder="Enter password"
                             // autoComplete="current-password"
                             {...register("password", {
-                                required: true,
+                                required: {
+                                    message:
+                                        "Password length must be minimum 8 character long",
+                                    value: true,
+                                },
                             })}
                         />
                     </div>
@@ -95,9 +122,9 @@ const Signup = () => {
                             Create Account
                         </Button>
                     </div>
-                    {errors && (
+                    {error && (
                         <p className="text-center font-bold text-red-400">
-                            {errors}
+                            {error}
                         </p>
                     )}
                 </form>

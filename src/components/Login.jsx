@@ -22,7 +22,7 @@ const Login = () => {
             const userSession = await authService.login(data);
             if (userSession) {
                 const userData = await authService.getUserInfo();
-                if (userData) dispatch(userLogin(data));
+                if (userData) dispatch(userLogin({ user: userData }));
                 navigate("/");
             }
         } catch (error) {

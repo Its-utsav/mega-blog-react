@@ -10,17 +10,25 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        authService
-            .getUserInfo()
-            .then((user) => {
-                if (user) {
-                    dispatch(login({ user }));
-                } else {
-                    dispatch(logout());
-                }
-            })
-            .finally(() => setLoading(false));
+        const localUser = localStorage.getItem("userData");
+        if (localUser) {
+            dispatch(login({ user: JSON.parse(localUser) }));
+            setLoading(false);
+        } else {
+            authService
+                .getUserInfo()
+                .then((user) => {
+                    if (user) {
+                        dispatch(login({ user }));
+                    } else {
+                        dispatch(logout());
+                    }
+                })
+                .finally(() => setLoading(false));
+        }
     }, []);
+
+    if (loading) return <h1 className="text-center">Restoring session...</h1>;
 
     return (
         <>
@@ -28,10 +36,13 @@ function App() {
                 <div className="mx-4 block w-full">
                     <Header />
                     <main>
-                        {/* {loading && (
-                            <p className="text-8xl text-green-400">Loading</p>
-                        )} */}
-                        <Outlet />
+                        {loading ? (
+                            <p className="text-center text-8xl text-green-400">
+                                Loading
+                            </p>
+                        ) : (
+                            <Outlet />
+                        )}
                     </main>
                     <Footer />
                 </div>

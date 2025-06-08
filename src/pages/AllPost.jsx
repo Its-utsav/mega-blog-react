@@ -13,15 +13,22 @@ const AllPost = () => {
 
     const { pathname } = useLocation();
 
-    let q = [Query.equal("status", true)];
     const userData = useSelector((state) => state.auth.userData);
-
-    if (pathname === "/my-post") {
-        q = [Query.equal("user_id", userData.$id)];
-    }
-
     useEffect(() => {
+        const isMyPost = pathname === "/my-post";
+
+        if (!userData && isMyPost) return;
+
         setLoading(true);
+
+        let q = [];
+
+        if (isMyPost) {
+            q = [Query.equal("user_id", userData.$id)];
+        } else {
+            q = [Query.equal("status", true)];
+        }
+
         service
             .getAllPost(q)
             .then((res) => {
@@ -30,8 +37,13 @@ const AllPost = () => {
                     setPostCount(res.total);
                 }
             })
+            .catch((e) => {
+                console.log("Error while Post fetching", e);
+                setLoading(false);
+            })
             .finally(() => setLoading(false));
-    }, [pathname]);
+    }, [pathname, userData]);
+
     if (loading) {
         return (
             <div className="m-4">
