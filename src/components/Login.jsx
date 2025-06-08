@@ -7,17 +7,21 @@ import { login as userLogin } from "../store/authSlice";
 import { Button, Input, Logo } from "./index";
 
 const Login = () => {
-    const [errors, setErrors] = useState("");
+    const [error, setError] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { handleSubmit, register } = useForm();
+    const {
+        handleSubmit,
+        register,
+        formState: { errors },
+    } = useForm();
 
     const login = async (data) => {
         /*
             name:value
         */
 
-        setErrors("");
+        setError("");
         try {
             const userSession = await authService.login(data);
             if (userSession) {
@@ -27,7 +31,19 @@ const Login = () => {
             }
         } catch (error) {
             console.log(error);
-            setErrors(error.message);
+            setError(error.message);
+        }
+    };
+
+    const displayErrors = () => {
+        if (errors) {
+            let e = "";
+            for (const [key, val] of Object.entries(errors)) {
+                if (val.message && val.message !== "") {
+                    e += val.message + ". ";
+                }
+            }
+            setError(e);
         }
     };
 
@@ -54,7 +70,7 @@ const Login = () => {
                     </Link>
                 </p>
 
-                <form onSubmit={handleSubmit(login)}>
+                <form onSubmit={handleSubmit(login, displayErrors)}>
                     <div className="space-y-5">
                         <Input
                             label={"Email : "}
@@ -62,7 +78,10 @@ const Login = () => {
                             placeholder="Enter Your Email"
                             autoComplete="email"
                             {...register("email", {
-                                required: true,
+                                required: {
+                                    message: "Email is required",
+                                    value: true,
+                                },
                                 pattern: {
                                     value: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
                                     message:
@@ -78,7 +97,10 @@ const Login = () => {
                             placeholder="Enter password"
                             autoComplete="current-password"
                             {...register("password", {
-                                required: true,
+                                required: {
+                                    message: "password is required",
+                                    value: true,
+                                },
                             })}
                         />
                     </div>
@@ -87,9 +109,9 @@ const Login = () => {
                             Login
                         </Button>
                     </div>
-                    {errors && (
+                    {error && (
                         <p className="text-center font-bold text-red-400">
-                            {errors}
+                            {error}
                         </p>
                     )}
                 </form>

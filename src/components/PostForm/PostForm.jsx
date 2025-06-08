@@ -4,13 +4,13 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { service } from "../../appwrite/services/config";
 import { tranformBoolValue } from "../../utils";
-import { Button, Input, Select, RTE } from "../index";
+import { Button, Input, RTE, Select } from "../index";
 
 const PostForm = ({ post }) => {
-    // console.log("from post form", post);
+    // console.log();
     const userData = useSelector((state) => state.auth.userData);
     const navigate = useNavigate();
-    // console.log(userData);
+    // console.log();
     // const { $id } = userData.user;
     const { register, handleSubmit, watch, setValue, getValues, control } =
         useForm({
@@ -22,24 +22,27 @@ const PostForm = ({ post }) => {
             },
         });
 
-    // console.log(userData);
+    // console.log();
     const submit = async (data) => {
-        // console.log(data);
+        // console.log();
+        const status =
+            data.status === true || data.status === false
+                ? data.status
+                : tranformBoolValue(data.status);
+
         if (post) {
-            // Updation of Postr
+            // Updation of Post
             const img = data.image[0];
-            const status =
-                data.status === true || data.status === false
-                    ? data.status
-                    : tranformBoolValue(data.status);
+            let file = post.featured_image; // old post featured_image
+            if (img) {
+                file = await service.fileUpload(img); // set new one
+                if (file) await service.fileDelete(post.featured_image); // delete old one
+            }
 
-            const file = img ? await service.fileUpload(img) : null;
-
-            if (file) await service.fileDelete(post.featured_image);
             const updatedPost = await service.updatePost(post.$id, {
                 title: data.title,
                 content: data.Content,
-                featured_image: file ? file.$id : null,
+                featured_image: file,
                 slug: data.slug,
                 user_id: userData.$id,
                 status: status,
